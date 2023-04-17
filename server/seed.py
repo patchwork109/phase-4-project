@@ -7,8 +7,8 @@
 # from faker import Faker
 
 # # Local imports
-# from app import app
-# from models import db
+from app import app
+from models import db
 
 
 # if __name__ == '__main__':
@@ -49,7 +49,9 @@ def seed_data():
     db.session.commit()
 
 if __name__ == '__main__':
-    seed_data()
+    with app.app_context():
+        print("Starting seed...")
+        seed_data()
 
 
 

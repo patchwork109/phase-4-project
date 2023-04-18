@@ -9,7 +9,14 @@ import AboutUs from "./AboutUs";
 import Footer from "./Footer";
 
 function App() {
- 
+
+  const [menuItems, setMenuItems] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:5555/potatodishes')
+    .then(response => response.json())
+    .then(setMenuItems)
+  }, [])
 
 
   return (
@@ -23,6 +30,7 @@ function App() {
           <Route path="/about us" component={AboutUs} />
         </Switch>
       </Router>
+      <Menu menuItems={menuItems}/>
     </div>
 
   )

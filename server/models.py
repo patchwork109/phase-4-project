@@ -47,6 +47,8 @@ class PotatoDish(db.Model, SerializerMixin):
     sauce = db.Column(db.String)
     topping = db.Column(db.String)
     price = db.Column(db.Float)
+    description = db.Column(db.String)
+    image = db.Column(db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 

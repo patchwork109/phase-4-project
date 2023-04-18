@@ -26,11 +26,23 @@ def seed_data():
     db.create_all()
 
     # Create PotatoDish 
-    plain_fries = PotatoDish(name='Plain Fries', base='Fries', price=3.99)
-    cheese_fries = PotatoDish(name='Cheese Fries', base='Fries', topping='Cheese', price=5.99)
-    chili_fries = PotatoDish(name='Chili Fries', base='Fries', topping='Chili', price=6.99)
-    truffle_fries = PotatoDish(name='Truffle Fries', base='Fries', topping='Truffle', price=7.99)
-    garlic_parm_fries = PotatoDish(name='Garlic Parmigiana Fries', base='Fries', topping='Garlic Parmigiana', price=8.99)
+    plain_fries = PotatoDish(name='Plain Fries', base='Fries', price=3.99, 
+                             description="Golden, crispy, and irresistibly salty, our French fries are the perfect side dish for any meal. Served hot and fresh, they're a classic that never goes out of style.", 
+                             image= 'https://static.toiimg.com/thumb/54659021.cms?imgsize=275086&width=800&height=800')
+    cheese_fries = PotatoDish(name='Cheese Fries', base='Fries',  topping='Cheese', price=5.99, 
+                              description="Take our delicious French fries and top them with a generous helping of melted cheese, and you've got yourself a winner. Perfect for sharing, these cheesy fries are the ultimate indulgence.",
+                              image= 'https://www.acouplecooks.com/wp-content/uploads/2022/06/Cheese-Fries-005.jpg')
+    chili_fries = PotatoDish(name='Chili Fries', base='Fries',  topping='Chili', price=6.99, 
+                             description="Our hearty and satisfying chili fries are a meal in themselves. Featuring our homemade chili con carne, melted cheese, and a variety of toppings like onions, sour cream, and jalapenos, they're the ultimate comfort food.",
+                             image= 'https://images.ctfassets.net/hhv516v5f7sj/1OjIcGeVKg5maT9j6dLt4r/9d5e392fad9efa33f0903e7dcb0e521f/chilicheesefries_1000x1000.jpg')
+    truffle_fries = PotatoDish(name='Truffle Fries', base='Fries',  topping='Truffle', price=7.99, 
+                             description="Elevate your fries game with our truffle fries. Thin-cut potatoes fried until crispy and then tossed in truffle oil and Parmesan cheese, resulting in a rich and flavorful dish that's perfect for a special occasion.",
+                             image= 'https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_center,w_730,h_913/k%2FPhoto%2FRecipe%20Ramp%20Up%2F2021-08-Truffle-Fries%2FKitchnKitchn3580-1_01')
+    garlic_parm_fries = PotatoDish(name='Garlic Parmigiana Fries',  base='Fries', topping='Garlic Parmigiana', price=8.99,
+                             description="Our crispy fries tossed in garlic-infused olive oil and grated Parmesan cheese are a true delight for the senses. The aroma alone is enough to make your mouth water, and the flavor is simply irresistible.",
+                             image='https://www.foodiecrush.com/wp-content/uploads/2018/04/Killer-Rosemary-Garlic-Fries-foodiecrush.com-010.jpg')
+
+
 
     # Create Order 
     order1 = Order(customer_name='Grace Nieboer')

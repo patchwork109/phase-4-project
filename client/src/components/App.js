@@ -18,8 +18,6 @@ function App() {
     .then(setMenuItems)
   }, [])
 
-  console.log(menuItems)
-
 
   return (
     <div>

@@ -59,6 +59,10 @@ class OrderById(Resource):
         return make_response(order.to_dict(), 200)
 
 class DishOrders(Resource):
+    def get(self):
+        dish_orders = [d.to_dict() for d in DishOrder.query.all()]
+        return make_response(dish_orders,200)
+    
     def post(self):
         data=request.get_json()
 

@@ -24,9 +24,8 @@ class OrderById(Resource):
         order = Order.query.filter_by(id=id).first()
         if not order:
             return make_response({"error":"Order not found"}, 404)
-        return make_response(order.to_dict(), 200)
-    
-    
+        return make_response(order.to_dict(rules=('potato_dishes',)), 200)
+
     def delete(self, id):
         order = Order.query.filter_by(id=id).first()
         if not order:
@@ -59,6 +58,26 @@ class OrderById(Resource):
             return make_response({"error":"Validation Error - could not update database"}, 400)
         return make_response(order.to_dict(), 200)
 
+class DishOrders(Resource):
+    def post(self):
+        data=request.get_json()
+
+        try:
+            new_dish_order = DishOrder(
+                order_id=data['order_id'],
+                potato_dish_id=data['potato_dish_id']
+            )
+        except:
+            return make_response({"error":"Validation error, unable to POST"}, 400)
+        
+        try:
+            db.session.add(new_dish_order)
+            db.session.commit()
+        except:
+            return make_response({"error":"Validation error, unable to save to database"}, 400)
+        
+        return make_response(new_dish_order.to_dict(), 201)
+        
 class Orders(Resource):
     def post(self):
         data = request.get_json()
@@ -75,12 +94,13 @@ class Orders(Resource):
 
 
 
-    
+
 
 
 api.add_resource(Home, '/' )
 api.add_resource(PotatoDishes, '/potatodishes')
 api.add_resource(OrderById, '/orders/<int:id>')
+api.add_resource(DishOrders, '/dishorders')
 api.add_resource(Orders, '/orders')
 
 if __name__ == '__main__':

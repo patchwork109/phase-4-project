@@ -19,18 +19,26 @@ function App() {
   }, [])
 
 
+
   return (
     <div>
       <Router>
         <Navbar />
         <Switch>
-          <Route path ="/" exact component={HomePage} />
-          <Route path="/menu" component={Menu} />
-          <Route path="/order" component={Order} />
-          <Route path="/about us" component={AboutUs} />
+          <Route path ="/">
+           <HomePage />
+          </Route>
+          <Route path="/menu">
+            <Menu menuItems={menuItems}/>
+          </Route>
+          <Route path="/order">
+            <Order menuItems={menuItems} />
+          </Route>
+          <Route path="/about us">
+            <AboutUs />
+          </Route> 
         </Switch>
       </Router>
-      <Menu menuItems={menuItems}/>
     </div>
 
   )

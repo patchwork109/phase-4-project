@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 import AddToCart from "./AddToCart";
+import Cart from "./Cart";
+// import { Route } from "react-router-dom/cjs/react-router-dom.min";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import { Formik } from 'formik'
 
 function Order({menuItems}) {
   const [showBigForm, setShowBigForm] = useState(false)
-  const [currentOrder, setCurrentOrder] = useState()
+  const [currentOrder, setCurrentOrder] = useState('')
 
   const displayForms = menuItems.map(item => {
     return (
@@ -29,13 +32,21 @@ function Order({menuItems}) {
 
   return (
     <div>
-      <button onClick={onClickStartNew} >Start New Order </button>
-        <div>
-          {showBigForm ?
-          displayForms :
-          <div></div>}
-        </div>
-      {/* //custom form here */}
+      <Switch>
+        <Route exact path="/order">
+          <button onClick={onClickStartNew} >Start New Order</button>
+          <div>
+            {showBigForm ?
+            displayForms :
+            <div></div>} 
+            {/* //custom form here */}
+          </div>
+        </Route>
+        <Route exact path="/order/cart">
+            <Cart currentOrder={currentOrder}/>
+        </Route>
+        </Switch>
+     
     </div>
 
   )

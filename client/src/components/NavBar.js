@@ -10,6 +10,7 @@ const NavBar =() => {
       <NavLink exact to="/menu">Menu</NavLink>
       <NavLink exact to="/order">Order</NavLink>
       <NavLink exact to="/about">About</NavLink>
+      <NavLink exact to="/order/cart">Cart</NavLink>
     </nav>
 
   )

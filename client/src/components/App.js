@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./NavBar";
+import NavBar from "./NavBar";
 import HomePage from "./HomePage";
 import Header from "./Header";
 import Menu from "./Menu";
@@ -18,25 +18,26 @@ function App() {
     .then(setMenuItems)
   }, [])
 
+  console.log(menuItems)
 
 
   return (
     <div>
       <Router>
-        <Navbar />
+      <NavBar />
         <Switch>
-          <Route path ="/">
-           <HomePage />
-          </Route>
           <Route path="/menu">
             <Menu menuItems={menuItems}/>
           </Route>
           <Route path="/order">
             <Order menuItems={menuItems} />
           </Route>
-          <Route path="/about us">
+          <Route path="/about">
             <AboutUs />
-          </Route> 
+          </Route>
+          <Route exact path ="/">
+           <HomePage />
+          </Route>
         </Switch>
       </Router>
     </div>

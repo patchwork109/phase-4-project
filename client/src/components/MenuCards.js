@@ -1,12 +1,12 @@
 import React from "react";
 
-function MenuCards() {
+function MenuCards({id, name}) {
  
 
 
   return (
     <div>
-      I'm the menu cards!
+      {name}
     </div>
 
   )

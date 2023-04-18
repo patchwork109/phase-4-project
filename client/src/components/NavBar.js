@@ -7,13 +7,14 @@ const NavBar =() => {
   return (
     <nav>
       <NavLink exact to="/">Home</NavLink>
-      <NavLink to="/menu">Menu</NavLink>
-      <NavLink to="/order">Order</NavLink>
-      <NavLink to="/about">About</NavLink>
+      <NavLink exact to="/menu">Menu</NavLink>
+      <NavLink exact to="/order">Order</NavLink>
+      <NavLink exact to="/about">About</NavLink>
     </nav>
 
   )
 
 }
+
 
 export default NavBar;

@@ -18,9 +18,9 @@ function Cart({currentOrder}) {
     }
 
     useEffect(() => {
-    fetch(`http://localhost:5555/orders/${currentOrder.id}`)
-    .then(response => handleResponse(response))
-  }, [])
+        fetch(`http://localhost:5555/orders/${currentOrder.id}`)
+            .then(response => handleResponse(response))
+    }, [])
 
 
     const displayCartItems = itemsInCart.map(i => {

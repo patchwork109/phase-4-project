@@ -25,7 +25,8 @@ class OrderById(Resource):
         if not order:
             return make_response({"error":"Order not found"}, 404)
         return make_response(order.to_dict(), 200)
-
+    
+    
     def delete(self, id):
         order = Order.query.filter_by(id=id).first()
         if not order:
@@ -58,6 +59,19 @@ class OrderById(Resource):
             return make_response({"error":"Validation Error - could not update database"}, 400)
         return make_response(order.to_dict(), 200)
 
+class Orders(Resource):
+    def post(self):
+        data = request.get_json()
+
+        order = Order(customer_name=data['customer_name'])
+
+        try:
+            db.session.add(order)
+            db.session.commit()
+        except:
+            return make_response({"error": "Validation error"}, 400)
+
+        return make_response(order.to_dict(), 201)
 
 
 
@@ -67,7 +81,7 @@ class OrderById(Resource):
 api.add_resource(Home, '/' )
 api.add_resource(PotatoDishes, '/potatodishes')
 api.add_resource(OrderById, '/orders/<int:id>')
-
+api.add_resource(Orders, '/orders')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

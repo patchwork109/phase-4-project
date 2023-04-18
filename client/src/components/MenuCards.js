@@ -1,12 +1,14 @@
 import React from "react";
 
-function MenuCards({id, name}) {
+function MenuCards({id, name, description, image}) {
  
 
 
   return (
     <div>
-      {name}
+      <img src={image} alt={description} />
+      <h2>{name}</h2>
+      <h4>{description}</h4>
     </div>
 
   )

@@ -7,6 +7,8 @@ function Menu({menuItems}) {
     return <MenuCards key={menuItem.id}
       id={menuItem.id}
       name={menuItem.name}
+      description={menuItem.description}
+      image={menuItem.image}
     />
   })
 

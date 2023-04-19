@@ -3,17 +3,12 @@ import CartEditorView from "./CartEditorView";
 import CartItem from "./CartItem";
 
 
-//need to give delete button functionality
-//need to do something with place order button
-//need to give PATCH fetch to SAVE button
-
 function Cart({currentOrder}) {
 // items in cart are associated dish_order_instances
     const [itemsInCart, setItemsInCart] = useState([])
     const [areItemsFound, setAreItemsFound] = useState(false)
     const [isEditMode, setIsEditMode] = useState(false)
     const [selectedCartItem, setSelectedCartItem] = useState('')
-    const [selectedDeleteItem, setSelectedDeleteItem] = useState('')
 
     const handleResponse = r => {
         if (r.ok) {

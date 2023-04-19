@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import AddToCart from "./AddToCart";
 import Cart from "./Cart";
-// import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import { Formik } from 'formik'
+
 
 function Order({menuItems}) {
   const [showBigForm, setShowBigForm] = useState(false)

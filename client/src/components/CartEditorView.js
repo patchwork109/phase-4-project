@@ -11,8 +11,11 @@ function CartEditorView ({handleEditMode, selectedCartItem, handleEditItemsInCar
     const handleResponse = r => {
         if (r.ok) {
             console.log( "STATUS:", r.status)
-            r.json().then(console.log)
-            .then(handleEditItemsInCart)
+            r.json().then((updatedObj) => {
+                console.log(updatedObj)
+                handleEditItemsInCart(updatedObj)
+            })
+            
 
         } else {
             console.error("STATUS:", r.status)

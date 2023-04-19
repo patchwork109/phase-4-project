@@ -34,8 +34,16 @@ function Cart({currentOrder}) {
 
 
   const handleEditItemsInCart = (updatedItemObj) => {
-    const updatedItems = itemsInCart.map((i) => i === updatedItemObj ? updatedItemObj : i )
-    setSelectedCartItem(updatedItemObj)
+    console.log(updatedItemObj)
+    const updatedItems = itemsInCart.map((item) => {
+        console.log(item)
+        if(item.id === updatedItemObj.id){
+            return updatedItemObj;
+        } else {
+            return item
+        }
+    })
+    // setSelectedCartItem(updatedItemObj)
     setItemsInCart(updatedItems)
     console.log(itemsInCart)
   }

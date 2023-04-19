@@ -69,7 +69,8 @@ class DishOrders(Resource):
         try:
             new_dish_order = DishOrder(
                 order_id=data['order_id'],
-                potato_dish_id=data['potato_dish_id']
+                potato_dish_id=data['potato_dish_id'],
+                note_to_chef=''
             )
         except:
             return make_response({"error":"Validation error, unable to POST"}, 400)
@@ -101,7 +102,7 @@ class DishOrderById(Resource):
     def patch(self, id):
         dishorder = DishOrder.query.filter_by(id=id).first()
         if not dishorder:
-            return make_response({"error":"Dish order not found"}, 404)
+            return make_response({"error":"Oh no, Dish order not found"}, 404)
         data = request.get_json()
         try:
             for key in data.keys():

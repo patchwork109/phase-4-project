@@ -1,11 +1,30 @@
 
 
 
-function CartItem({i, handleEditMode, handleSelectedItem, handleDelete}) {
+function CartItem({i, handleEditMode, handleSelectedItem, handleRemoveFromCartItems}) {
 
     const handleClick = (e) => {
         handleSelectedItem(i)
         handleEditMode()
+    }
+
+    const handleDeleteResponse = r => {
+        if (r.ok) {
+            console.log( "STATUS:", r.status)
+            r.json().then(console.log)  
+        } else {
+            console.error("STATUS:", r.status)
+            r.text().then(console.warn)
+        }
+    }
+
+    const handleDelete = () => {
+        fetch(`http://localhost:5555/dishorders/${i.id}`, {
+        method: "DELETE"})
+
+        .then(response => handleDeleteResponse(response))
+
+        handleRemoveFromCartItems(i.id)
     }
 
     return (

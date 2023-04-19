@@ -99,6 +99,12 @@ class Orders(Resource):
 
 
 class DishOrderById(Resource):
+    def get(self, id):
+        dishorder = DishOrder.query.filter_by(id=id).first()
+        if not dishorder:
+            return make_response({"error":"Oh no, Dish order not found"}, 404) 
+        return make_response(dishorder.to_dict(), 200)       
+
     def patch(self, id):
         dishorder = DishOrder.query.filter_by(id=id).first()
         if not dishorder:
@@ -113,6 +119,15 @@ class DishOrderById(Resource):
         db.session.add(dishorder)
         db.session.commit()
         return make_response(dishorder.to_dict(rules=('potato_dish',)), 200)
+    
+    def delete(self, id):
+        dishorder = DishOrder.query.filter_by(id=id).first()
+        if not dishorder:
+            return make_response({"error":"Oh no, Dish order not found"}, 404)
+        
+        db.session.delete(dishorder)
+        db.session.commit()
+        return make_response({"message": "Deleted successfully"}, 200)
 
 
 

@@ -13,6 +13,7 @@ function Cart({currentOrder}) {
     const [areItemsFound, setAreItemsFound] = useState(false)
     const [isEditMode, setIsEditMode] = useState(false)
     const [selectedCartItem, setSelectedCartItem] = useState('')
+    const [selectedDeleteItem, setSelectedDeleteItem] = useState('')
 
     const handleResponse = r => {
         if (r.ok) {
@@ -43,7 +44,6 @@ function Cart({currentOrder}) {
             return item
         }
     })
-    // setSelectedCartItem(updatedItemObj)
     setItemsInCart(updatedItems)
     console.log(itemsInCart)
   }
@@ -55,23 +55,13 @@ function Cart({currentOrder}) {
     });
   }
 
-  const handleDeleteResponse = r => {
-        if (r.ok) {
-            console.log( "STATUS:", r.status)
-            r.json().then(console.log)  
-        } else {
-            console.error("STATUS:", r.status)
-            r.text().then(console.warn)
-        }
+    const handleRemoveFromCartItems = doomedDishOrderId => {
+        const afterDeletedItems = itemsInCart.filter(itemInCart => {
+          return itemInCart.id !== doomedDishOrderId
+        })
+    
+        setItemsInCart(afterDeletedItems)
     }
-
-    const handleDelete = () => {
-    console.log("deleting!")
-    }
-
-//   const handleRemoveFromCartItems = (doomed_dish_order) => {
-//     const afterDeletedItems = 
-//   }
 
     const handleEditMode = (e) => {
         setIsEditMode(!isEditMode)
@@ -83,7 +73,8 @@ function Cart({currentOrder}) {
                     key={i.id} id={i.id} i={i} 
                     handleEditMode={handleEditMode} 
                     handleSelectedItem={setSelectedCartItem}
-                    handleDelete={handleDelete} />
+                    handleRemoveFromCartItems={handleRemoveFromCartItems}
+                    />
                 )
             }
     )

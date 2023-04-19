@@ -112,7 +112,7 @@ class DishOrderById(Resource):
         
         db.session.add(dishorder)
         db.session.commit()
-        return make_response(dishorder.to_dict(), 200)
+        return make_response(dishorder.to_dict(rules=('potato_dish',)), 200)
 
 
 

@@ -33,12 +33,11 @@ function Cart({currentOrder}) {
 
 
 
-  const handleEditItemsInCart = (updatedItem) => {
-    const updatedItems = itemsInCart.map((i) =>
-    i.id === updatedItem.id ? updatedItem : i 
-    )
-    setSelectedCartItem(updatedItem)
+  const handleEditItemsInCart = (updatedItemObj) => {
+    const updatedItems = itemsInCart.map((i) => i === updatedItemObj ? updatedItemObj : i )
+    setSelectedCartItem(updatedItemObj)
     setItemsInCart(updatedItems)
+    console.log(itemsInCart)
   }
 
   function handleChangeForm(name, value) {

@@ -41,6 +41,9 @@ def seed_data():
     garlic_parm_fries = PotatoDish(name='Garlic Parmigiana Fries',  base='Fries', topping='Garlic Parmigiana', price=8.99,
                              description="Our crispy fries tossed in garlic-infused olive oil and grated Parmesan cheese are a true delight for the senses. The aroma alone is enough to make your mouth water, and the flavor is simply irresistible.",
                              image='https://www.foodiecrush.com/wp-content/uploads/2018/04/Killer-Rosemary-Garlic-Fries-foodiecrush.com-010.jpg')
+    sweet_potato_fries = PotatoDish(name='Sweet Potato Fries',  base='Fries', price=8.99,
+                             description="Our crispy and golden-brown sweet potato fries, seasoned with a blend of spices and served with a side of spicy aioli dipping sauce, are the perfect way to satisfy your craving for a flavorful and healthy snack.",
+                             image='https://www.dinneratthezoo.com/wp-content/uploads/2019/07/sweet-potato-fries-5.jpg')
 
 
 
@@ -55,9 +58,10 @@ def seed_data():
     dish_order3 = DishOrder(order=order3, potato_dish=truffle_fries)
     dish_order4 = DishOrder(order=order2, potato_dish=chili_fries)
     dish_order5 = DishOrder(order=order2, potato_dish=garlic_parm_fries)
+    dish_order6 = DishOrder(order=order3, potato_dish=sweet_potato_fries)
 
     # Add objects to session and commit
-    db.session.add_all([plain_fries, cheese_fries, chili_fries, truffle_fries, garlic_parm_fries, order1, order2, dish_order1, dish_order2, dish_order3, dish_order4, dish_order5])
+    db.session.add_all([plain_fries, cheese_fries, chili_fries, truffle_fries, garlic_parm_fries, sweet_potato_fries, order1, order2, dish_order1, dish_order2, dish_order3, dish_order4, dish_order5, dish_order6])
     db.session.commit()
 
 if __name__ == '__main__':

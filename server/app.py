@@ -24,7 +24,7 @@ class OrderById(Resource):
         order = Order.query.filter_by(id=id).first()
         if not order:
             return make_response({"error":"Order not found"}, 404)
-        return make_response(order.to_dict(rules=('potato_dishes',)), 200)
+        return make_response(order.to_dict(rules=('potato_dishes','dish_orders', 'dish_orders.potato_dish')), 200)
 
     def delete(self, id):
         order = Order.query.filter_by(id=id).first()
@@ -97,7 +97,21 @@ class Orders(Resource):
         return make_response(order.to_dict(), 201)
 
 
-
+class DishOrderById(Resource):
+    def patch(self, id):
+        dishorder = DishOrder.query.filter_by(id=id).first()
+        if not dishorder:
+            return make_response({"error":"Dish order not found"}, 404)
+        data = request.get_json()
+        try:
+            for key in data.keys():
+                setattr(dishorder, key, data[key])
+        except:
+            return make_response({"error":"Validation Error, unable to complete request"}, 400)
+        
+        db.session.add(dishorder)
+        db.session.commit()
+        return make_response(dishorder.to_dict(), 200)
 
 
 
@@ -106,6 +120,7 @@ api.add_resource(PotatoDishes, '/potatodishes')
 api.add_resource(OrderById, '/orders/<int:id>')
 api.add_resource(DishOrders, '/dishorders')
 api.add_resource(Orders, '/orders')
+api.add_resource(DishOrderById, '/dishorders/<int:id>')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

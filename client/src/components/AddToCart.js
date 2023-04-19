@@ -30,11 +30,12 @@ function AddToCart({item, currentOrder}){
 //////////////////////// add images!!! ////////////////////
     return (
         <div>
-            <image src="" ></image>
+            <img src={item.image}/>
             <p>Price: {item.price}</p>
             <form onSubmit={handleSubmit} >
                 <button type="submit">Add to Cart</button>
             </form>
+            <br />
         </div>
 
     )

@@ -33,9 +33,6 @@ class Order(db.Model, SerializerMixin):
         db.session.commit()
 
 
-
-
-
 class PotatoDish(db.Model, SerializerMixin):
     __tablename__ = 'potato_dishes'
 
@@ -69,6 +66,7 @@ class DishOrder(db.Model, SerializerMixin):
     serialize_rules = ('-order', '-potato_dish')
 
     id = db.Column(db.Integer, primary_key=True)
+    note_to_chef = db.Column(db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 

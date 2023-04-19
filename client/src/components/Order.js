@@ -15,7 +15,7 @@ function Order({menuItems}) {
     )
   })
 
-// need to change this to set showBigForm to true
+// change this to set showBigForm to true?
   const onClickStartNew = () => {
     setShowBigForm(!showBigForm)
     const new_order= {

@@ -15,7 +15,7 @@ function CartEditorView ({handleEditMode, selectedCartItem, handleEditItemsInCar
         fetch(`http://localhost:5555/dishorders/${selectedCartItem.id}`, {
             method: "PATCH",
             headers: {"Content-Type":"application/json"},
-            body: JSON.stringify(selectedCartItem.potato_dish)
+            body: JSON.stringify(selectedCartItem)
         })
 
         handleEditMode()

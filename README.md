@@ -1,3 +1,20 @@
+# Team To Do 
+
+
+Delete function for Cart Items
+Patch function for Editing Cart items
+
+
+PLACE YOUR ORDER => Modal
+Carousel homepage
+
+
+
+
+
+
+
+
 # Phase 4 Full-Stack Application Project Template
 
 ## Learning Goals

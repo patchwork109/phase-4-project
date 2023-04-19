@@ -1,4 +1,5 @@
 import React from "react";
+import HomePageCarousel from "./Carousel";
 
 function HomePage() {
  
@@ -6,7 +7,7 @@ function HomePage() {
 
   return (
     <div>
-      I'm the home page!
+      <HomePageCarousel />
     </div>
 
   )

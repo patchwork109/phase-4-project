@@ -1,18 +1,74 @@
-import React from "react";
+// import React from "react";
 
-function MenuCards({id, name, description, image}) {
+// function MenuCards({id, name, description, image}) {
  
 
 
+//   return (
+//     <div>
+//       <img src={image} alt={description} />
+//       <h2>{name}</h2>
+//       <h4>{description}</h4>
+//     </div>
+
+//   )
+
+// }
+
+// export default MenuCards;
+
+
+// import React from "react";
+// import "./style.css";
+
+// function MenuCards({id, name, description, image}) {
+//   return (
+//     <div className="col">
+//       <div className="card h-50">
+//         <img src={image} alt={description} className="card-img-top" />
+//         <div className="card-body">
+//           <h2 className="card-title">{name}</h2>
+//           <h4 className="card-text">{description}</h4>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default MenuCards;
+
+
+
+
+import React from "react";
+import "./style.css";
+
+function MenuCards({id, name, description, image}) {
   return (
-    <div>
-      <img src={image} alt={description} />
-      <h2>{name}</h2>
-      <h4>{description}</h4>
+    <div className="col">
+      <div className="card h-100">
+        <div className="card-image-wrapper">
+          <img src={image} alt={description} className="card-img-top" />
+          <div className="card-description">{description}</div>
+        </div>
+        <div className="card-body">
+          <h2 className="card-title">{name}</h2>
+        </div>
+      </div>
     </div>
-
   )
-
 }
 
 export default MenuCards;
+
+
+
+
+
+
+
+
+
+
+
+

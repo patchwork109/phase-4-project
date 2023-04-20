@@ -155,7 +155,8 @@ class Users(Resource):
 def current_user():
         current_user = User.query.get(session['user_id']) 
         if current_user:
-            return make_response(current_user.to_dict(), 200)     
+            return make_response(current_user.to_dict(), 200) 
+        return make_response({"message":"no user found!"}, 202)    
 
 
 

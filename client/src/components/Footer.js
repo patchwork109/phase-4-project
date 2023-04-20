@@ -26,7 +26,7 @@ function Footer() {
       </div>
     </div>
     <div className="footer-right col-md-4 col-sm-6">
-      <h2> Company<span> logo</span></h2>
+      <h2>Fry Me to the Moon<span> logo</span></h2>
       <p className="menu">
         Made with coffee, love, and preworkout ♡
       </p>

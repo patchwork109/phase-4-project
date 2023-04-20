@@ -23,6 +23,15 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
+  .navbar {
+    background-color: #3C486B;
+    
+  }
+
+  .navText {
+    color: #F45050;
+  }
+
   .difference {
     text-align: center;
     font-size: 24px;
@@ -109,7 +118,7 @@
 /* /////////////////////////////////////FOOTER MESS////////////////////////////////////////// */
                                     /* LINES 57-219 */
   .footer {
-    background-color: #272d6b;
+    background-color: #3C486B;
     width: 100%;
     text-align: left;
     font-weight: bold;
@@ -208,7 +217,7 @@
   }
   
   .footer .footer-center p a {
-    color: #0099ff;
+    color: #F45050;
     text-decoration: none;
   }
   
@@ -227,7 +236,7 @@
   }
   
   .footer h2 span {
-    color: #0099ff;
+    color: #F45050;
   }
   
   .footer .menu {
@@ -244,11 +253,11 @@
   }
   
   .footer .menu a:hover {
-    color: #0099ff;
+    color: #F45050;
   }
   
   .footer .name {
-    color: #0099ff;
+    color: #F45050;
     font-size: 14px;
     font-weight: normal;
     margin: 0;

@@ -3,6 +3,8 @@ import * as yup from "yup"
 import React, {useState} from "react"
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
 
 //need to install yup: npm i yup
 //currently this lives in the About Us page for testing purposes
@@ -55,20 +57,23 @@ function Authentication ({updateUser}) {
 
     return (
         <>
+        <Container>
         {Object.values(formik.errors).map(error => <h2  style={{color:'red'}}>{error}</h2>)}
         <h1>Log in or Sign up</h1>
         <Button onClick={handleClick}>{signUp ? "Log In" : "Sign Up!"}</Button>
-        <form onSubmit={formik.handleSubmit}>
-            <label>Username</label>
-            <input type="text" name="username" value={formik.values.username} onChange={formik.handleChange}/>
+        
+        <Form onSubmit={formik.handleSubmit}>
+            <Form.Label><strong>Username</strong></Form.Label>
+            <Form.Control type="text" name="username" value={formik.values.username} onChange={formik.handleChange}></Form.Control>
             {signUp&&(
                 <>
-                <label>Email</label>
-                <input type="text" name="email" value={formik.values.email} onChange={formik.handleChange}/>
+                <Form.Label><strong>Email</strong></Form.Label>
+                <Form.Control type="text" name="email" value={formik.values.email} onChange={formik.handleChange}></Form.Control>
                 </>
             )}
             <Button type="submit">{signUp? "Sign Up" : "Log In" }</Button>
-        </form>
+        </Form>
+        </Container>
         </>
     )
 

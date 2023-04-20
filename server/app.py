@@ -150,7 +150,7 @@ class Users(Resource):
         return make_response(new_user.to_dict(), 201)
 
     
-
+# 
 @app.route('/currentuser')   
 def current_user():
         current_user = User.query.get(session['user_id']) 

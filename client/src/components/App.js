@@ -13,11 +13,13 @@ function App() {
   const [menuItems, setMenuItems] = useState([])
   const [count, setCount] = useState(0);
 
+
   useEffect(() => {
     fetch('http://localhost:5555/potatodishes')
     .then(response => response.json())
     .then(setMenuItems)
   }, [])
+
 
 
   return (

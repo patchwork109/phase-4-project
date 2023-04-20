@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import Badge from '@mui/material/Badge';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { GiFrenchFries } from 'react-icons/gi';
 
 function NavBar({count}) {
 
@@ -23,7 +23,7 @@ function NavBar({count}) {
           <Nav className="justify-content-end">
             <Nav.Link exact to="/order/cart" as={NavLink}>
               <Badge color="secondary" badgeContent={count}>
-              <ShoppingCartIcon />
+              <GiFrenchFries size={28}/>
               </Badge>
             </Nav.Link>
           </Nav>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import HomePage from "./HomePage";
-import Header from "./Header";
 import Menu from "./Menu";
 import Order from "./Order";
 import AboutUs from "./AboutUs";

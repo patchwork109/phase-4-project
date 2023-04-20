@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import AddToCart from "./AddToCart";
 import Cart from "./Cart";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 
 //
@@ -36,7 +37,7 @@ function Order({menuItems, setCount, count}) {
     <div>
       <Switch>
         <Route exact path="/order">
-          <button onClick={onClickStartNew} >Start New Order</button>
+          <Button onClick={onClickStartNew}>Start New Order</Button>
           <div>
             {showBigForm ?
             displayForms :

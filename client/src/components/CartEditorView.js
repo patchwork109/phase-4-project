@@ -1,4 +1,8 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 
 function CartEditorView ({handleEditMode, selectedCartItem, handleEditItemsInCart, handleChangeForm}) {
     const { name, image, } = selectedCartItem.potato_dish;
@@ -37,23 +41,30 @@ function CartEditorView ({handleEditMode, selectedCartItem, handleEditItemsInCar
     }
 
     return (
-        <div>
-            <img src = {image}/>
-            <h1>{name}</h1>
-            <form onSubmit = {handleSubmit}>
-                <label>Note to the Chef</label>
-                <input 
-                onChange = {handleChefNotes} 
-                type = "text" 
-                value = {note_to_chef}
-                name = "note_to_chef">
-                </input>
-                <br />
-              <button>SAVE</button>  
-            </form>
-            <button onClick={handleEditMode}>CANCEL</button>
-            
-        </div>
+        <Container>
+            <Card style={{width: '35rem'}}>
+            <Card.Img variant="top" src = {image} alt={name}/>
+            <Card.Body>
+                <Card.Title>{name}</Card.Title>
+                <Form onSubmit = {handleSubmit}>
+                    <Form.Label><strong>Note to the Chef:</strong></Form.Label>
+                    <Form.Control 
+                        onChange = {handleChefNotes} 
+                        type = "text" 
+                        value = {note_to_chef}
+                        name = "note_to_chef">
+                    </Form.Control>
+                    <Form.Text className="text-muted">
+                        Let us know how we can make your order even better.
+                    </Form.Text>
+                    <br />
+                    <br />
+                    <Button variant="primary" type="submit">Save</Button>  
+                </Form>
+            <Button onClick={handleEditMode} variant="secondary">Cancel</Button>
+            </Card.Body>
+            </Card>
+        </Container>
     )
 }
 

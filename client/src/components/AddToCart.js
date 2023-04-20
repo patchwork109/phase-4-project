@@ -1,4 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Alert from 'react-bootstrap/Alert';
+
 
 function AddToCart({item, currentOrder, setCount, count}){
 
@@ -29,16 +34,21 @@ function AddToCart({item, currentOrder, setCount, count}){
 
         setCount(count + 1)
     }
-//////////////////////// add images!!! ////////////////////
+
     return (
-        <div>
-            <img src={item.image}/>
-            <p>Price: {item.price}</p>
-            <form onSubmit={handleSubmit} >
-                <button type="submit">Add to Cart</button>
-            </form>
-            <br />
-        </div>
+        <Container>
+            <Card style={{width: '45rem'}}>
+                <Card.Img variant="top" src={item.image} alt={item.description}/>
+                <Card.Body>
+                    <Card.Title>{item.name}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">Price: ${item.price}</Card.Subtitle>
+                    <form onSubmit={handleSubmit} >
+                        <Button type="submit">Add to Cart</Button>
+                        <Alert variant="success">Item added to cart!</Alert>
+                    </form>
+                </Card.Body>
+            </Card>
+        </Container>
 
     )
 }

@@ -9,10 +9,6 @@ function HomePageCarousel() {
           src="https://recipe30.com/wp-content/uploads/2017/06/French-fries.jpg"
           alt="First slide"
         />
-        <Carousel.Caption>
-          <h3>Imma fry</h3>
-          <p>Nom</p>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -20,10 +16,6 @@ function HomePageCarousel() {
           src="https://www.cookinwithmima.com/wp-content/uploads/2021/04/crispy-airfrayer-french-fries-recipe.jpg"
           alt="Second slide"
         />
-        <Carousel.Caption>
-          <h3>Imma fry too</h3>
-          <p>Nom Nom</p>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -31,10 +23,6 @@ function HomePageCarousel() {
           src="https://www.allrecipes.com/thmb/JZsbJ8XNPxkbDk_hwHz-KI7nSKk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/219634-chef-johns-french-fries-DDMFS-4x3-338dec7976fc4d75bb3e2c18ff6a6e95.jpg"
           alt="Third slide"
         />
-        <Carousel.Caption>
-          <h3>Imma fry three</h3>
-          <p>Nom Nom Nom</p>
-        </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   );

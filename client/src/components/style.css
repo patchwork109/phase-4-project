@@ -25,7 +25,6 @@
 
   .navbar {
     background-color: #3C486B;
-    
   }
 
   .navText {
@@ -58,6 +57,14 @@
   }
 
   .homePageGuaranteedFresh:hover {
+    transform: scale(1.2);
+  }
+
+  .homePageOutOfThisWord {
+    transition: transform .5s ease;
+  }
+
+  .homePageOutOfThisWord:hover {
     transform: scale(1.2);
   }
 
@@ -118,6 +125,8 @@
 /* /////////////////////////////////////FOOTER MESS////////////////////////////////////////// */
                                     /* LINES 57-219 */
   .footer {
+    position: fixed;
+    bottom: 0;
     background-color: #3C486B;
     width: 100%;
     text-align: left;

@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import { GiFrenchFries } from 'react-icons/gi';
 import { GrMapLocation } from 'react-icons/gr';
 import { TbHeartHandshake } from 'react-icons/tb';
+import { BsRocketTakeoff } from 'react-icons/bs';
 
 function HomePage() {
  
@@ -17,7 +18,10 @@ function HomePage() {
         <Row>
           <Col>
           <br />
-          <h2>The FRIES Difference</h2></Col>
+          <h2>The Fry Me to the Moon Difference</h2></Col>
+        </Row>
+        <Row>
+          <br />
         </Row>
         <Row>
           <Col className="homePageLocallySourced">
@@ -34,6 +38,11 @@ function HomePage() {
             <GiFrenchFries className="homePageIcon"/>
             <br/>
             Guaranteed Fresh
+          </Col>
+          <Col className="homePageOutOfThisWord"> 
+            <BsRocketTakeoff className="homePageIcon"/>
+            <br/>
+            Out of this World
           </Col>
         </Row>
       </Container>

@@ -3,6 +3,7 @@ import CartEditorView from "./CartEditorView";
 import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 function Cart({currentOrder, setCount, count}) {
@@ -25,9 +26,9 @@ function Cart({currentOrder, setCount, count}) {
     }
 
     useEffect(() => {
-    fetch(`http://localhost:5555/orders/${currentOrder.id}`)
-    .then(response => handleResponse(response))
-  }, [])
+        fetch(`http://localhost:5555/orders/${currentOrder.id}`)
+        .then(response => handleResponse(response))
+    }, [])
 
 
 
@@ -94,9 +95,9 @@ function Cart({currentOrder, setCount, count}) {
                     <div>
                     {displayCartItems}
                     <br />
-                    <form>
-                        <Button>PLACE YOUR ORDER</Button>
-                    </form>
+                    <Form>
+                        <Button type="submit">PLACE YOUR ORDER</Button>
+                    </Form>
                     </div> :
                     <EmptyCart />
                     }

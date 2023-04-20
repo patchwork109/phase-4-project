@@ -1,11 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import Alert from 'react-bootstrap/Alert';
+
+import Box from '@mui/material/Box';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 function AddToCart({item, currentOrder, setCount, count}){
+
+    const [open, setOpen] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -33,6 +40,8 @@ function AddToCart({item, currentOrder, setCount, count}){
         .then (r => handleResponse(r))
 
         setCount(count + 1)
+
+        setOpen(!open)
     }
 
     return (
@@ -44,7 +53,24 @@ function AddToCart({item, currentOrder, setCount, count}){
                     <Card.Subtitle className="mb-2 text-muted">Price: ${item.price}</Card.Subtitle>
                     <form onSubmit={handleSubmit} >
                         <Button type="submit">Add to Cart</Button>
-                        <Alert variant="success">Item added to cart!</Alert>
+                            <Box sx={{ width: '100%' }}>
+                                <Collapse in={open}>
+                                    <Alert
+                                    action={
+                                        <IconButton
+                                            aria-label="close"
+                                            color="inherit"
+                                            size="small"
+                                            onClick={() => {setOpen(false)}}>
+                                            <CloseIcon fontSize="inherit" />
+                                        </IconButton>
+                                    }
+                                    sx={{ mb: 2 }}
+                                    >
+                                    Item added to order!
+                                    </Alert>
+                                </Collapse>
+                            </Box>
                     </form>
                 </Card.Body>
             </Card>

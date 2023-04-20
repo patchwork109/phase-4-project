@@ -11,9 +11,9 @@ function NavBar({count}) {
 
 
   return (
-    <Navbar className="navbar" sticky="top">
+    <Navbar className="navbar" sticky="top" variant="dark">
         <Container>
-          <Navbar.Brand exact to="/" as={NavLink}>FRIES</Navbar.Brand>
+          <Navbar.Brand exact to="/" as={NavLink}>Fry Me to the Moon</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link exact to="/" as={NavLink}>Home</Nav.Link>
             <Nav.Link exact to="/menu" as={NavLink}>Menu</Nav.Link>

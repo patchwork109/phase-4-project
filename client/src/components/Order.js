@@ -4,13 +4,13 @@ import Cart from "./Cart";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
-function Order({menuItems}) {
+function Order({menuItems, setCount, count}) {
   const [showBigForm, setShowBigForm] = useState(false)
   const [currentOrder, setCurrentOrder] = useState('')
 
   const displayForms = menuItems.map(item => {
     return (
-      <AddToCart item={item} key={item.id} currentOrder={currentOrder}/>
+      <AddToCart item={item} key={item.id} currentOrder={currentOrder} setCount={setCount} count={count}/>
     )
   })
 
@@ -42,7 +42,7 @@ function Order({menuItems}) {
           </div>
         </Route>
         <Route exact path="/order/cart">
-            <Cart currentOrder={currentOrder}/>
+            <Cart currentOrder={currentOrder} setCount={setCount} count={count}/>
         </Route>
         </Switch>
      

@@ -1,7 +1,7 @@
 
 
 
-function CartItem({i, handleEditMode, handleSelectedItem, handleRemoveFromCartItems}) {
+function CartItem({i, handleEditMode, handleSelectedItem, handleRemoveFromCartItems, setCount, count}) {
 
     const handleClick = (e) => {
         handleSelectedItem(i)
@@ -25,6 +25,8 @@ function CartItem({i, handleEditMode, handleSelectedItem, handleRemoveFromCartIt
         .then(response => handleDeleteResponse(response))
 
         handleRemoveFromCartItems(i.id)
+
+        setCount(count - 1)
     }
 
     return (

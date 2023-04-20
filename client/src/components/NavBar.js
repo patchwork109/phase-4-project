@@ -4,7 +4,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function NavBar() {
+import Badge from '@mui/material/Badge';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
+function NavBar({count}) {
+
 
   return (
     <Navbar bg="primary" variant="dark">
@@ -17,7 +21,11 @@ function NavBar() {
             <Nav.Link exact to="/about" as={NavLink}>About</Nav.Link>
           </Nav>
           <Nav className="justify-content-end">
-            <Nav.Link exact to="/order/cart" as={NavLink}>Cart</Nav.Link>
+            <Nav.Link exact to="/order/cart" as={NavLink}>
+              <Badge color="secondary" badgeContent={count}>
+              <ShoppingCartIcon />
+              </Badge>
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>

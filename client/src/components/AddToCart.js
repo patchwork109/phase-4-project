@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function AddToCart({item, currentOrder}){
+function AddToCart({item, currentOrder, setCount, count}){
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -26,6 +26,8 @@ function AddToCart({item, currentOrder}){
             body: JSON.stringify(new_dish_order)
         })
         .then (r => handleResponse(r))
+
+        setCount(count + 1)
     }
 //////////////////////// add images!!! ////////////////////
     return (

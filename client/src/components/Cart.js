@@ -3,7 +3,7 @@ import CartEditorView from "./CartEditorView";
 import CartItem from "./CartItem";
 
 
-function Cart({currentOrder}) {
+function Cart({currentOrder, setCount, count}) {
 // items in cart are associated dish_order_instances
     const [itemsInCart, setItemsInCart] = useState([])
     const [areItemsFound, setAreItemsFound] = useState(false)
@@ -65,10 +65,12 @@ function Cart({currentOrder}) {
     const displayCartItems = itemsInCart.map((i) => {
                 return (
                     <CartItem 
-                    key={i.id} id={i.id} i={i} 
-                    handleEditMode={handleEditMode} 
-                    handleSelectedItem={setSelectedCartItem}
-                    handleRemoveFromCartItems={handleRemoveFromCartItems}
+                        key={i.id} id={i.id} i={i} 
+                        handleEditMode={handleEditMode} 
+                        handleSelectedItem={setSelectedCartItem}
+                        handleRemoveFromCartItems={handleRemoveFromCartItems}
+                        setCount={setCount}
+                        count={count}
                     />
                 )
             }

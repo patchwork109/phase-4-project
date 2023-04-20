@@ -80,7 +80,6 @@ class User(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, unique=True)
 
-    articles = db.relationship('Article', backref='user')
 
     def __repr__(self):
         return f'User {self.username}, ID {self.id}'

@@ -150,24 +150,35 @@ class Users(Resource):
         return make_response(new_user.to_dict(), 201)
 
     
-# 
+# CheckSession
 @app.route('/currentuser')   
 def current_user():
-        current_user = User.query.get(session['user_id']) 
+        current_user = User.query.filter(User.id == session.get('user_id')).first()
         if current_user:
             return make_response(current_user.to_dict(), 200) 
-        return make_response({"message":"no user found!"}, 202)    
-
+        return make_response({"message":"401: Not Authorized!"}, 401)    
 
 
 class Login(Resource):
     def post(self):
-        pass
+        user = User.query.filter(
+            User.username == request.get_json()['username']
+        ).first()
+        if user:
+            session['user_id'] = user.id
+            return make_response(user.to_dict(), 200)
+        return make_response({"message":"401: Not Authorized!"}, 401)
+
+        
 
 class Logout(Resource):
-    def post(self):
-        pass
+    def delete(self): # just add this line!
+        session['user_id'] = None
+        return {'message': '204: No Content'}, 204
 
+
+
+api.add_resource(Logout, '/logout')
 api.add_resource(Home, '/' )
 api.add_resource(PotatoDishes, '/potatodishes')
 api.add_resource(OrderById, '/orders/<int:id>')

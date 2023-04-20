@@ -27,8 +27,13 @@
     background-color: #3C486B;
   }
 
-  .navText {
-    color: #F45050;
+  
+  .authform {
+    background-color: #F45050;
+    margin: 50px;
+    padding: 60px;
+    padding-left: 40px;
+    
   }
 
   .difference {

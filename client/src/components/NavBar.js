@@ -7,8 +7,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import Badge from '@mui/material/Badge';
 import { GiFrenchFries } from 'react-icons/gi';
 
-function NavBar({count}) {
+function NavBar({count, onLogout}) {
 
+function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => onLogout());
+  }
 
   return (
     <Navbar className="navbar" sticky="top" variant="dark">
@@ -26,6 +31,7 @@ function NavBar({count}) {
               <GiFrenchFries size={28}/>
               </Badge>
             </Nav.Link>
+            <Nav.Link onClick={handleLogout}>Log Out</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

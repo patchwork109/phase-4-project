@@ -1,40 +1,28 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import AddToCart from "./AddToCart";
 import Cart from "./Cart";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import Authentication from "./Authentication";
-
 import Button from 'react-bootstrap/Button';
 
 
 
-function Order({menuItems, setCount, count}) {
+
+function Order({menuItems, setCount, count, updateUser, user}) {
   const [showBigForm, setShowBigForm] = useState(false)
   const [currentOrder, setCurrentOrder] = useState('')
-  const [user, setUser] = useState(null);
-  const history = useHistory()
+  // const history = useHistory()
   
-  const updateUser = (user) => setUser(user) 
-  console.log(user)
-
-  useEffect(() =>{
-    fetch("/currentuser")
-    .then(r =>  {
-      if(r.ok) {
-        r.json().then(user => updateUser(user) )
-      } 
-    })
-  }, [])
-
-  console.log(user)
+ 
+  
 
   const displayForms = menuItems.map(item => {
     return (
       <AddToCart item={item} key={item.id} currentOrder={currentOrder} setCount={setCount} count={count}/>
     )
   })
-// change this to set showBigForm to true?
+
   const onClickStartNew = () => {
     setShowBigForm(!showBigForm)
     const new_order= {

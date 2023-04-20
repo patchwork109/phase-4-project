@@ -6,9 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 
-//need to install yup: npm i yup
-//currently this lives in the About Us page for testing purposes
-
 function Authentication ({updateUser}) {
 
     const [signUp, setSignUp] = useState(false)
@@ -23,7 +20,6 @@ function Authentication ({updateUser}) {
             r.json().then((user => {
                 updateUser(user) 
                 history.push('/order')
-                console.log(user)
             }) )
     
             
@@ -57,12 +53,12 @@ function Authentication ({updateUser}) {
 
     return (
         <>
-        <Container>
+        <Container className="authform rounded">
         {Object.values(formik.errors).map(error => <h2  style={{color:'red'}}>{error}</h2>)}
-        <h1>Log in or Sign up</h1>
-        <Button onClick={handleClick}>{signUp ? "Log In" : "Sign Up!"}</Button>
+        <h1 className="text-light"><strong>Log in or Sign up</strong></h1>
+        <Button variant="warning" onClick={handleClick}>{signUp ? "Log In" : "Sign Up!"}</Button>
         
-        <Form onSubmit={formik.handleSubmit}>
+        <Form className="text-light" onSubmit={formik.handleSubmit}>
             <Form.Label><strong>Username</strong></Form.Label>
             <Form.Control type="text" name="username" value={formik.values.username} onChange={formik.handleChange}></Form.Control>
             {signUp&&(
@@ -71,7 +67,8 @@ function Authentication ({updateUser}) {
                 <Form.Control type="text" name="email" value={formik.values.email} onChange={formik.handleChange}></Form.Control>
                 </>
             )}
-            <Button type="submit">{signUp? "Sign Up" : "Log In" }</Button>
+            <br/>
+            <Button variant="warning" type="submit">{signUp? "Sign Up" : "Log In" }</Button>
         </Form>
         </Container>
         </>

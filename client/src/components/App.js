@@ -12,6 +12,7 @@ function App() {
 
   const [menuItems, setMenuItems] = useState([])
   const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null);
 
 
   useEffect(() => {
@@ -20,18 +21,28 @@ function App() {
     .then(setMenuItems)
   }, [])
 
+  useEffect(() =>{
+    fetch("/currentuser")
+    .then(r =>  {
+      if(r.ok) {
+        r.json().then(user => updateUser(user) )
+      } 
+    })
+  }, [])
 
+  const updateUser = (user) => setUser(user) 
+  const onLogout = () => setUser(null)
 
   return (
     <div>
       <Router>
-      <NavBar count={count}/>
+      <NavBar onLogout={onLogout} count={count}/>
         <Switch>
           <Route path="/menu">
             <Menu menuItems={menuItems}/>
           </Route>
           <Route path="/order">
-            <Order menuItems={menuItems} setCount={setCount} count={count}/>
+            <Order menuItems={menuItems} setCount={setCount} count={count} user={user} updateUser={updateUser}/>
           </Route>
           <Route path="/about">
             <AboutUs />

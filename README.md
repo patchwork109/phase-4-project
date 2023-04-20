@@ -1,21 +1,22 @@
 # Team To Do 
 
+Grace 
 
-Delete function for Cart Items
-Patch function for Editing Cart items
+Start your order view - cute thing space filler
+Empty Cart 
+footer logo
+LogOut - alert? push back to home? //conditional logic? 
+?? README
 
+Sam
 
 PLACE YOUR ORDER => Modal
-Carousel homepage
+Order and Cart CSS
 
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
-import Authentication from "./Authentication";
-import { Switch, Route } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-
-
+Tomorrow Morning
+About Us
+ReadMe
 
 
 # Phase 4 Full-Stack Application Project Template

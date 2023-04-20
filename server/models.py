@@ -73,4 +73,14 @@ class DishOrder(db.Model, SerializerMixin):
     order_id = db.Column(db.Integer, db.ForeignKey('orders.id'))
     potato_dish_id = db.Column(db.Integer, db.ForeignKey('potato_dishes.id'))
     
- 
+
+class User(db.Model, SerializerMixin):
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, unique=True)
+
+    articles = db.relationship('Article', backref='user')
+
+    def __repr__(self):
+        return f'User {self.username}, ID {self.id}'

@@ -94,6 +94,10 @@
     opacity: 1;
   }
 
+  .emptyCart {
+    background-image: url("https://cdn.vectorstock.com/i/preview-1x/84/76/red-and-white-seamless-diagonal-checkered-pattern-vector-45998476.jpg")
+  }
+
 /* /////////////////////////////////////FOOTER MESS////////////////////////////////////////// */
                                     /* LINES 57-219 */
   .footer {

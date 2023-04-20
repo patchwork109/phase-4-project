@@ -3,7 +3,7 @@
 # Standard library imports
 
 # Remote library imports
-from flask import request, make_response
+from flask import request, make_response, session
 from flask_restful import Resource
 
 # Local imports
@@ -129,6 +129,18 @@ class DishOrderById(Resource):
         db.session.commit()
         return make_response({"message": "Deleted successfully"}, 200)
 
+class Login(Resource):
+    def post(self):
+        form_json = request.get_json()
+        new_user = User(
+            name=form_json['name'],
+            email=form_json['email']
+        )
+        db.session.add(new_user)
+        db.session.commit()
+
+        session['userId'] = new_user.id
+        return make_response(new_user.to_dict(), 201)
 
 
 api.add_resource(Home, '/' )
@@ -137,6 +149,10 @@ api.add_resource(OrderById, '/orders/<int:id>')
 api.add_resource(DishOrders, '/dishorders')
 api.add_resource(Orders, '/orders')
 api.add_resource(DishOrderById, '/dishorders/<int:id>')
+api.add_resource(Login, '/login')
+
+
+
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

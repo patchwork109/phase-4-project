@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import CartEditorView from "./CartEditorView";
 import CartItem from "./CartItem";
+import EmptyCart from "./EmptyCart";
 
 
 function Cart({currentOrder, setCount, count}) {
@@ -96,7 +97,7 @@ function Cart({currentOrder, setCount, count}) {
                         <button>PLACE YOUR ORDER</button>
                     </form>
                     </div> :
-                    <div>There's nothing in your cart yet</div>
+                    <EmptyCart />
                     }
                 </div>
             )

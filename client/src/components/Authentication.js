@@ -56,8 +56,9 @@ function Authentication ({updateUser}) {
         <Container className="authform rounded">
         {Object.values(formik.errors).map(error => <h2  style={{color:'red'}}>{error}</h2>)}
         <h1 className="text-light"><strong>Log in or Sign up</strong></h1>
-        <Button variant="warning" onClick={handleClick}>{signUp ? "Log In" : "Sign Up!"}</Button>
-        
+        <Button variant="warning" onClick={handleClick}>{signUp ? "Already a Frequent Frier? Log In Here" : "Not a Spud Bud Yet? Sign Up Here!"}</Button>
+        <br />
+        <br />
         <Form className="text-light" onSubmit={formik.handleSubmit}>
             <Form.Label><strong>Username</strong></Form.Label>
             <Form.Control type="text" name="username" value={formik.values.username} onChange={formik.handleChange}></Form.Control>

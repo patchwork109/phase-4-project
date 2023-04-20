@@ -26,7 +26,7 @@ function handleLogout() {
             <Nav.Link exact to="/about" as={NavLink}>About</Nav.Link>
           </Nav>
           <Nav className="justify-content-end">
-            <Nav.Link exact to="/order/cart" as={NavLink}>
+            <Nav.Link exact to="/cart" as={NavLink}>
               <Badge color="secondary" badgeContent={count}>
               <GiFrenchFries size={28}/>
               </Badge>

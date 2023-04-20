@@ -130,7 +130,7 @@
 /* /////////////////////////////////////FOOTER MESS////////////////////////////////////////// */
                                     /* LINES 57-219 */
   .footer {
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     background-color: #3C486B;
     width: 100%;

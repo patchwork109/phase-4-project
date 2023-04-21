@@ -19,11 +19,14 @@ function Cart({currentOrder, setCount, count}) {
         if (r.ok) {
             console.log( "STATUS:", r.status)
             r.json().then(r => setItemsInCart(r.dish_orders))
-            setAreItemsFound(!areItemsFound)
+            setAreItemsFound(true)
             
         } else {
             console.error("STATUS:", r.status)
-            r.text().then(console.warn)
+            r.text().then((r) => {
+                console.warn(r)
+                setAreItemsFound(false)
+            })
         }
     }
 

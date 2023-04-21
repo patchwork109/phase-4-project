@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Badge from '@mui/material/Badge';
 import { GiFrenchFries } from 'react-icons/gi';
 
-function NavBar({count, onLogout}) {
+function NavBar({count, onLogout, user}) {
 
 function handleLogout() {
     fetch("/logout", {
@@ -31,7 +31,7 @@ function handleLogout() {
               <GiFrenchFries size={28}/>
               </Badge>
             </Nav.Link>
-            <Nav.Link onClick={handleLogout}>Log Out</Nav.Link>
+            <Nav.Link exact to="/" as={NavLink} onClick={handleLogout}>{(user===null)? "":"Log Out"}</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

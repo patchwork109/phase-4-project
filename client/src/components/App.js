@@ -16,6 +16,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [user, setUser] = useState(null);
   const [currentOrder, setCurrentOrder] = useState('')
+  const [showBigForm, setShowBigForm] = useState(false)
 
 
   useEffect(() => {
@@ -33,19 +34,37 @@ function App() {
     })
   }, [])
 
+  const onClickStartNew = () => {
+    setShowBigForm(!showBigForm)
+    const new_order= {
+      customer_name: "newCustomer"
+    }
+    fetch("http://localhost:5555/orders", {
+      method: "POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify(new_order)
+    })
+    .then(r=>r.json())
+    .then(orderObj => setCurrentOrder(orderObj))
+  }
+
+
   const updateUser = (user) => setUser(user) 
-  const onLogout = () => setUser(null)
+  const onLogout = () => {
+    setUser(null)
+    setCurrentOrder('')
+  }
 
   return (
     <div>
       <Router>
-      <NavBar onLogout={onLogout} count={count}/>
+      <NavBar user={user} onLogout={onLogout} count={count}/>
         <Switch>
           <Route path="/menu">
             <Menu menuItems={menuItems}/>
           </Route>
           <Route exact path="/order">
-            <Order handleCurrentOrder={setCurrentOrder} currentOrder={currentOrder} menuItems={menuItems} setCount={setCount} count={count} user={user} updateUser={updateUser}/>
+            <Order showBigForm={showBigForm} onClickStartNew={onClickStartNew} currentOrder={currentOrder} menuItems={menuItems} setCount={setCount} count={count} user={user} updateUser={updateUser}/>
           </Route>
           <Route exact path="/cart">
             <Cart currentOrder={currentOrder} setCount={setCount} count={count}/>

@@ -156,8 +156,30 @@
     opacity: 1;
   }
 
-  .emptyCart {
-    background-color: #0099ff;
+  .moonImage {
+    width:100%;
+    height:100%;
+  }
+
+  .getfryinImage {
+    width:100%;
+    height:100%;
+  }
+
+  .startOrder {
+    background-color:black;
+  }
+
+  #startButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:40px;
+  }
+
+  #logo {
+    height:130px;
+    width:130px;
   }
 
 /* /////////////////////////////////////FOOTER MESS////////////////////////////////////////// */
@@ -171,7 +193,7 @@
     font-weight: bold;
     font-size: 16px;
     padding: 50px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
   }
   
   .footer .footer-left,
@@ -185,7 +207,7 @@
   /* footer left*/
   
   .footer .footer-left {
-    width: 33%;
+    width: 30%;
     padding-right: 15px;
   }
   
@@ -228,7 +250,7 @@
   /* footer center*/
   
   .footer .footer-center {
-    width: 30%;
+    width: 25%;
   }
   
   .footer .footer-center i {
@@ -272,7 +294,7 @@
   /* footer right*/
   
   .footer .footer-right {
-    width: 35%;
+    width: 43%;
   }
   
   .footer h2 {

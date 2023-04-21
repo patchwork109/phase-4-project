@@ -2,12 +2,15 @@ import React, {useState} from "react";
 import AddToCart from "./AddToCart";
 import Authentication from "./Authentication";
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import getfryin from './letsgetfryin.png'
+import StartOrderPage from "./StartOrderPage";
 
 
 
 
-function Order({menuItems, setCount, count, updateUser, user, currentOrder, handleCurrentOrder}) {
-  const [showBigForm, setShowBigForm] = useState(false)
+function Order({showBigForm, onClickStartNew, menuItems, setCount, count, updateUser, user, currentOrder}) {
+
 
 
   const displayForms = menuItems.map(item => {
@@ -16,25 +19,30 @@ function Order({menuItems, setCount, count, updateUser, user, currentOrder, hand
     )
   })
 
-  const onClickStartNew = () => {
-    setShowBigForm(!showBigForm)
-    const new_order= {
-      customer_name: "newCustomer"
+  const getOrderView = () => {
+    if (showBigForm) {
+      return (
+        <div>
+          <div id="startButton">
+                <Button  variant="warning" size="lg" onClick={onClickStartNew} >Start New Order</Button> 
+          </div>
+          {displayForms}
+        </div>
+        )
+    } else {
+      return (
+        <StartOrderPage onClickStartNew={onClickStartNew}/>
+      )
     }
-    fetch("http://localhost:5555/orders", {
-      method: "POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify(new_order)
-    })
-    .then(r=>r.json())
-    .then(orderObj => handleCurrentOrder(orderObj))
   }
+
 
   return (
     <div>
           <div>
-            {(user === null) ? <Authentication updateUser={updateUser} /> : <Button onClick={onClickStartNew} >Start New Order</Button> }
-             {showBigForm ? displayForms : <div></div> }
+            {(user === null) ? 
+            <Authentication updateUser={updateUser} /> : 
+            getOrderView()}
           </div>
     </div>
 

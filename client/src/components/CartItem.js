@@ -42,7 +42,7 @@ function CartItem({i, handleEditMode, handleSelectedItem, handleRemoveFromCartIt
             <Col>
                 <Card className="cartItemCard">
                     <div key={i.id}>
-                        <Card.Header as="h3" className="cardHeader" style={{backgroundColor: "#1746A2", color: "white"}}>{i.potato_dish.name}</Card.Header>
+                        <Card.Header as="h3" className="cardHeader" style={{backgroundColor: "#F45050", color: "white"}}>{i.potato_dish.name}</Card.Header>
                         <Card.Img variant="top" src={i.potato_dish.image} alt={i.potato_dish.description}/>
                         <Card.Body>
                             <Card.Subtitle className="mb-2 text-muted"><strong>Price:</strong> ${i.potato_dish.price}</Card.Subtitle>

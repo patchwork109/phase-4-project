@@ -56,7 +56,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="appContainer">
       <Router>
       <NavBar user={user} onLogout={onLogout} count={count}/>
         <Switch>
@@ -67,7 +67,7 @@ function App() {
             <Order showBigForm={showBigForm} onClickStartNew={onClickStartNew} currentOrder={currentOrder} menuItems={menuItems} setCount={setCount} count={count} user={user} updateUser={updateUser}/>
           </Route>
           <Route exact path="/cart">
-            <Cart currentOrder={currentOrder} setCount={setCount} count={count}/>
+            <Cart currentOrder={currentOrder} setCount={setCount} count={count} setCurrentOrder={setCurrentOrder}/>
           </Route>
           <Route exact path="/about">
             <AboutUs />

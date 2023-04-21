@@ -3,7 +3,7 @@ import "./style.css";
 
 function MenuCards({id, name, description, image}) {
   return (
-    <div className="col">
+    <div className="col" id="menuCards">
       <div className="card h-100">
         <div className="card-image-wrapper">
           <img src={image} alt={description} className="card-img-top" />

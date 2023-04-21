@@ -43,7 +43,7 @@ function CartEditorView ({handleEditMode, selectedCartItem, handleEditItemsInCar
     return (
         <Container>
             <Card className="cartItemCard">
-                <Card.Header as="h3" className="cardHeader" style={{backgroundColor: "#1746A2", color: "white"}}>{name}</Card.Header>
+                <Card.Header as="h3" className="cardHeader" style={{backgroundColor: "#F45050", color: "white"}}>{name}</Card.Header>
                 <Card.Img variant="top" src = {image} alt={name}/>
                 <Card.Body>
                     <Form onSubmit = {handleSubmit}>

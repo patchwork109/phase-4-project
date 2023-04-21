@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 
 
-function Cart({currentOrder, setCount, count}) {
+function Cart({currentOrder, setCount, count, setCurrentOrder}) {
 // items in cart are associated dish_order_instances
     const [itemsInCart, setItemsInCart] = useState([])
     const [areItemsFound, setAreItemsFound] = useState(false)
@@ -90,7 +90,7 @@ function Cart({currentOrder, setCount, count}) {
 
         setCount(0)
 
-        //  need to clear cart
+        setCurrentOrder("")
     }
 
     const getCartView = () => {

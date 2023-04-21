@@ -46,16 +46,17 @@ function AddToCart({item, currentOrder, setCount, count}){
 
     return (
         <Container>
-            <Card style={{width: '45rem'}}>
+            <Card className="cartItemCard">
+                <Card.Header as="h3" className="cardHeader" style={{backgroundColor: "#1746A2", color: "white"}}>{item.name}</Card.Header>
                 <Card.Img variant="top" src={item.image} alt={item.description}/>
                 <Card.Body>
-                    <Card.Title>{item.name}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Price: ${item.price}</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-muted"><strong>Price:</strong> ${item.price}</Card.Subtitle>
                     <form onSubmit={handleSubmit} >
-                        <Button type="submit">Add to Cart</Button>
+                        <Button id="addToCartButton" type="submit">Add to Cart</Button>
                             <Box sx={{ width: '100%' }}>
                                 <Collapse in={open}>
                                     <Alert
+                                    variant="filled"
                                     action={
                                         <IconButton
                                             aria-label="close"
@@ -65,7 +66,7 @@ function AddToCart({item, currentOrder, setCount, count}){
                                             <CloseIcon fontSize="inherit" />
                                         </IconButton>
                                     }
-                                    sx={{ mb: 2 }}
+                                    sx={{ mb: 2, width: '100%' }}
                                     >
                                     Item added to order!
                                     </Alert>

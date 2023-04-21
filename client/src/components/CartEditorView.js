@@ -42,27 +42,27 @@ function CartEditorView ({handleEditMode, selectedCartItem, handleEditItemsInCar
 
     return (
         <Container>
-            <Card style={{width: '35rem'}}>
-            <Card.Img variant="top" src = {image} alt={name}/>
-            <Card.Body>
-                <Card.Title>{name}</Card.Title>
-                <Form onSubmit = {handleSubmit}>
-                    <Form.Label><strong>Note to the Chef:</strong></Form.Label>
-                    <Form.Control 
-                        onChange = {handleChefNotes} 
-                        type = "text" 
-                        value = {note_to_chef}
-                        name = "note_to_chef">
-                    </Form.Control>
-                    <Form.Text className="text-muted">
-                        Let us know how we can make your order even better.
-                    </Form.Text>
-                    <br />
-                    <br />
-                    <Button variant="primary" type="submit">Save</Button>  
-                </Form>
-            <Button onClick={handleEditMode} variant="secondary">Cancel</Button>
-            </Card.Body>
+            <Card className="cartItemCard">
+                <Card.Header as="h3" className="cardHeader" style={{backgroundColor: "#1746A2", color: "white"}}>{name}</Card.Header>
+                <Card.Img variant="top" src = {image} alt={name}/>
+                <Card.Body>
+                    <Form onSubmit = {handleSubmit}>
+                        <Form.Label><strong>Note for the chef:</strong></Form.Label>
+                        <Form.Control 
+                            onChange = {handleChefNotes} 
+                            type = "text" 
+                            value = {note_to_chef}
+                            name = "note_to_chef">
+                        </Form.Control>
+                        <Form.Text className="text-muted">
+                            Let us know how we can take your order to another planet.
+                        </Form.Text>
+                        <br />
+                        <br />
+                        <Button className="saveChangesButton" variant="primary" type="submit">Save</Button>  
+                    </Form>
+                <Button onClick={handleEditMode} variant="secondary">Cancel</Button>
+                </Card.Body>
             </Card>
         </Container>
     )

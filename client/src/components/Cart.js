@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
+import { useHistory } from "react-router-dom";
 import CartEditorView from "./CartEditorView";
 import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
 
 
 function Cart({currentOrder, setCount, count}) {
@@ -66,27 +68,35 @@ function Cart({currentOrder, setCount, count}) {
     }
 
     const displayCartItems = itemsInCart.map((i) => {
-                return (
-                    <CartItem 
-                        key={i.id} id={i.id} i={i} 
-                        handleEditMode={handleEditMode} 
-                        handleSelectedItem={setSelectedCartItem}
-                        handleRemoveFromCartItems={handleRemoveFromCartItems}
-                        setCount={setCount}
-                        count={count}
-                    />
-                )
-            }
-    )
+        return (
+            <CartItem 
+                key={i.id} id={i.id} i={i} 
+                handleEditMode={handleEditMode} 
+                handleSelectedItem={setSelectedCartItem}
+                handleRemoveFromCartItems={handleRemoveFromCartItems}
+                setCount={setCount}
+                count={count}
+            />
+        )
+    })
 
+    const history = useHistory();
+    const handleOrderSubmit = (e) => {
+        e.preventDefault()
+        history.push("/ordersuccess");
+
+        setCount(0)
+
+        //  need to clear cart
+    }
 
     const getCartView = () => {
         if (isEditMode) {
             return <CartEditorView 
-                    handleEditMode={handleEditMode} 
-                    selectedCartItem={selectedCartItem}
-                    handleEditItemsInCart={handleEditItemsInCart}
-                    handleChangeForm ={handleChangeForm}
+                        handleEditMode={handleEditMode} 
+                        selectedCartItem={selectedCartItem}
+                        handleEditItemsInCart={handleEditItemsInCart}
+                        handleChangeForm ={handleChangeForm}
                     />
         } else {
             return (
@@ -95,9 +105,11 @@ function Cart({currentOrder, setCount, count}) {
                     <div>
                     {displayCartItems}
                     <br />
-                    <Form>
-                        <Button type="submit">PLACE YOUR ORDER</Button>
+                    <Container>
+                    <Form onSubmit={handleOrderSubmit}>
+                        <Button id="orderButton" type="submit">PLACE YOUR ORDER</Button>
                     </Form>
+                    </Container>
                     </div> :
                     <EmptyCart />
                     }

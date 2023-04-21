@@ -7,6 +7,7 @@ import Order from "./Order";
 import AboutUs from "./AboutUs";
 import Footer from "./Footer";
 import Cart from "./Cart";
+import OrderSuccess from "./OrderSuccess";
 import "./style.css";
 
 function App() {
@@ -49,8 +50,11 @@ function App() {
           <Route exact path="/cart">
             <Cart currentOrder={currentOrder} setCount={setCount} count={count}/>
           </Route>
-          <Route path="/about">
+          <Route exact path="/about">
             <AboutUs />
+          </Route>
+          <Route exact path="/ordersuccess">
+            <OrderSuccess />
           </Route>
           <Route exact path ="/">
            <HomePage />

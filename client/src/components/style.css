@@ -27,7 +27,6 @@
     background-color: #3C486B;
   }
 
-  
   .authform {
     background-color: #F45050;
     margin: 50px;
@@ -84,6 +83,35 @@
     display: block;
   }
 
+  .cartItemCard {
+    margin-top: 30px;
+  }
+
+  /* .cartItemCard:hover {
+    transform: scale(1.01);
+  } */
+
+  .editButton {
+    margin-right: 10px;
+  }
+
+  .saveChangesButton {
+    margin-bottom: 10px;
+  }
+
+  #addToCartButton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #orderButton {
+    position: absolute;
+  }
+
+  .orderSuccess {
+    text-align: center;
+  }
+
    .card-img-top {
     width: 80%;
     height: 280px;
@@ -100,9 +128,14 @@
     font-size: 24px; /* Adjust font size as needed */
   }
   
-  
-  
-  
+  .card-body {
+    background-color: #F0F0F0;
+  }
+
+  .cardHeader {
+    color: #fff;
+  }
+
   .card-description {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;

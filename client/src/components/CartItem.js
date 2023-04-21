@@ -2,6 +2,8 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import { BsTrash } from 'react-icons/bs';
 import { MdOutlineEdit } from 'react-icons/md';
 
@@ -36,19 +38,22 @@ function CartItem({i, handleEditMode, handleSelectedItem, handleRemoveFromCartIt
 
     return (
         <Container>
-            <Card style={{width: '25rem'}}>
-                <div key={i.id}>
-                    <Card.Img variant="top" src={i.potato_dish.image} alt={i.potato_dish.description}/>
-                    <Card.Body>
-                        <Card.Title>{i.potato_dish.name}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Price: ${i.potato_dish.price}</Card.Subtitle>
-                        <Card.Text>Notes for the Chef: {i.note_to_chef}</Card.Text>
-                        <Card.Text>Quantity: 1</Card.Text>
-                        <Button onClick={handleClick} variant="primary">Edit <MdOutlineEdit/></Button>
-                        <Button onClick={handleDelete} variant="secondary">Delete <BsTrash/></Button>
-                    </Card.Body>
-                </div>
-            </Card>
+            <Row>
+            <Col>
+                <Card className="cartItemCard">
+                    <div key={i.id}>
+                        <Card.Header as="h3" className="cardHeader" style={{backgroundColor: "#1746A2", color: "white"}}>{i.potato_dish.name}</Card.Header>
+                        <Card.Img variant="top" src={i.potato_dish.image} alt={i.potato_dish.description}/>
+                        <Card.Body>
+                            <Card.Subtitle className="mb-2 text-muted"><strong>Price:</strong> ${i.potato_dish.price}</Card.Subtitle>
+                            <Card.Text><strong>Notes for the chef:</strong> {i.note_to_chef}<br/><strong>Quantity:</strong> 1</Card.Text>
+                            <Button className="editButton" onClick={handleClick} variant="primary">Edit <MdOutlineEdit/></Button>
+                            <Button onClick={handleDelete} variant="secondary">Delete <BsTrash/></Button>
+                        </Card.Body>
+                    </div>
+                </Card>
+            </Col>
+            </Row>
         </Container>
     )
 }

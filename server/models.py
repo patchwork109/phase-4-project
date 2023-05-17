@@ -32,6 +32,13 @@ class Order(db.Model, SerializerMixin):
         db.session.delete(dish_order)
         db.session.commit()
 
+    @property
+    def cartTotal(self):
+        total = 0
+        for pd in self.potato_dishes:
+            total += pd.price
+        return total
+
 
 class PotatoDish(db.Model, SerializerMixin):
     __tablename__ = 'potato_dishes'

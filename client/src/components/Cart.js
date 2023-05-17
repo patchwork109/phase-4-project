@@ -18,7 +18,10 @@ function Cart({currentOrder, setCount, count, setCurrentOrder}) {
     const handleResponse = r => {
         if (r.ok) {
             console.log( "STATUS:", r.status)
-            r.json().then(r => setItemsInCart(r.dish_orders))
+            r.json().then(r => {
+                setItemsInCart(r.dish_orders)
+                console.log(r.cartTotal)
+            })
             setAreItemsFound(true)
             
         } else {

@@ -31,7 +31,7 @@ class OrderById(Resource):
         order = Order.query.filter_by(id=id).first()
         if not order:
             return make_response({"error":"Order not found"}, 404)
-        return make_response(order.to_dict(rules=('potato_dishes','dish_orders', 'dish_orders.potato_dish')), 200)
+        return make_response(order.to_dict(rules=('potato_dishes','dish_orders', 'dish_orders.potato_dish', 'cartTotal')), 200)
 
     def delete(self, id):
         order = Order.query.filter_by(id=id).first()

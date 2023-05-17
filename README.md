@@ -4,8 +4,8 @@
 ![Fry Me to the Moon](homePage1.png)
 
 ## About the Project
-Collaborators: Vanessa Coelho, Sam Genevay, Grace Nieboer
-The application delivers a user-friendly outer-space themed ordering experience for artisan fry lovers everywhere.
+- Collaborators: [Vanessa Coelho](https://github.com/vanessa-co), [Sam Genevay](https://github.com/patchwork109), [Grace Nieboer](https://github.com/gnieb)
+- The application delivers a user-friendly outer-space themed ordering experience for artisan fry lovers everywhere.
 
 ## Built With
 - React
@@ -43,10 +43,11 @@ python app.py
 
 ## How to Use this Application 
 
-
+![orders](ordering.png) 
 
 Our users will be able to browse all potato creations. They can login in and become a spud member for life. Our users must log in or sign up in order to place a fry order. They can also edit or cancel any orders they have started. Once our users place an order they will be notified that their order is being prepared.
 
+![orderPlaced](placedOrder.png)
 
 ## Special Features
 
